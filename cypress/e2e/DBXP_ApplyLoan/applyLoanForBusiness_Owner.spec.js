@@ -19,8 +19,8 @@ describe('DBXP Apply Loan For Business Owner ',()=> {
     cy.fixture('ApplyLoanData').then(applyLoanData =>{
     onLoginPage.loginWithValidUserNameAndPassword(applyLoanData.Username, applyLoanData.Password)
     onBase_Pg.clickOnLoanButton()
-    // onBasePage.clickOnAddNewLoanButton()
-    onBase_Pg.clickOnApplyLoanBtn()
+    onBase_Pg.clickOnAddNewLoanButton()
+    // onBase_Pg.clickOnApplyLoanBtn()
     onUserDetailsPage.enterPanNumber(applyLoanData.PanNumber)
     onEmploymentTypePage.chooseEmploymentType('Business Owner')
     onEmploymentTypePage.enterDataForBusinessOwner(applyLoanData.StartDateOfBusiness,applyLoanData.CompanyName, applyLoanData.Currency, applyLoanData.LastYearPAT)

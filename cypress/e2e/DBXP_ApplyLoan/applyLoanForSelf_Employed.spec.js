@@ -16,8 +16,8 @@ describe('DBXP Apply Loan For Self Employed ',()=> {
         cy.fixture('ApplyLoanData').then(applyLoanData =>{
             onLoginPage.loginWithValidUserNameAndPassword(applyLoanData.Username,applyLoanData.Password)
             onBase_Pg.clickOnLoanButton()
-            onBase_Pg.clickOnApplyLoanBtn()
-            // onBasePage.clickOnAddNewLoanButton()
+            // onBase_Pg.clickOnApplyLoanBtn()
+            onBase_Pg.clickOnAddNewLoanButton()
             onUserDetailsPage.enterPanNumber(applyLoanData.PanNumber)
             onEmploymentTypePage.chooseEmploymentType('Self Employed')
             onEmploymentTypePage.enterDataForSelfEmployed(applyLoanData.StartDateProfession,applyLoanData.CompanyName,applyLoanData.Currency,applyLoanData.LastYearPAT,applyLoanData.ProfessionType)
