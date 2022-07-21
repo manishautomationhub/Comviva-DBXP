@@ -10,16 +10,19 @@ import { onBase_Pg } from "../../support/Utility/Base_Pg"
 
 describe('DBXP Apply Loan Test Suit', function() {
 
-    it('Validate Loan type with invalid data', ()=>{
-cy.fixture('ApplyLoanData').then(validData =>{
-        onLoginPage.loginWithValidUserNameAndPassword(validData.Username,validData.Password)
-        onBase_Pg.clickOnLoanButton()
-        onBase_Pg.clickOnApplyLoanBtn()
-        onUserDetailsPage.enterPanNumber(validData.PanNumber)
-        onEmploymentTypePage.chooseEmploymentType(validData.EmploymentType)
-        onEmploymentTypePage.enterDataForRetired(validData.LastEmployer)
-
+it('Validate Loan type with invalid data', ()=>{
+cy.fixture('LoginData').then(loginData =>{
+        onLoginPage.loginWithValidUserNameAndPassword(loginData.Username,loginData.Password)
     })
+        onBase_Pg.clickOnLoanButton()
+        // onBase_Pg.clickOnApplyLoanBtn()
+        onBase_Pg.clickOnAddNewLoanButton()
+        cy.fixture('ApplyLoanData').then(applyLoan=>{
+        onUserDetailsPage.enterPanNumber(applyLoan.PanNumber)
+        onEmploymentTypePage.chooseEmploymentType(applyLoan.EmploymentType)
+        onEmploymentTypePage.enterDataForRetired(applyLoan.LastEmployer)
+        })
+
 
 cy.fixture('ApplyLoanNegativeData').then(negativeData =>{
     onLoanTypePage.chooseLoanTypeAndEnterAmount(negativeData.LoanType,negativeData.Amount,negativeData.Currency)

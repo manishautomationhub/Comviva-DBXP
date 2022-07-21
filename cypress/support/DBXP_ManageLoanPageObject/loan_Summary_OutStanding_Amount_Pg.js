@@ -2,25 +2,9 @@
 export class LoanSummaryAndOutstandingAmount
 {
 
-
-summary_I_Button()
+clickOnDoneBtn()
 {
-    cy.get('[class="info-img"]').click()
-cy.get('[class="showToggle ng-star-inserted"] div').each((detailsOfAmount)=>{
- const textOfAmount=   detailsOfAmount.text().trim()
-cy.log(textOfAmount)
-
-})
-
-}
-
-amountPaidAsToday_I_Button()
-{
-cy.get('[class="shape-img"]').click()
-cy.get('[class="amount-To-Be-Paid-Toggle amount-toggle-new only-screen ng-star-inserted"] div').each((detailsOfAmountAsPaidToday)=>{
-    const textOfAmount = detailsOfAmountAsPaidToday.text().trim()
-cy.log(textOfAmount)
-})
+    cy.get('[class="btn btn-primary btn-done mat-ripple mat-stroked-button"]').click()
 }
 
 outStandingAmount()
@@ -37,31 +21,77 @@ cy.wrap(outStandingAmount).find('[class="row"] p').each((listOfDetails)=>{
 })
 }
 
-go_On_MoreOptions_Click_Manage_Personal_Loan()
+outstandingAmountValidate()
 {
-cy.get('[class="more-option-div"]').find('[class="summary"]').then(mpreOptions =>{
-    cy.wrap(mpreOptions).find('[class="more-option-card"] p').each((listOfSummary)=>{
-       const textOfMoreOptions= listOfSummary.text().trim()
-      cy.log(textOfMoreOptions)
-      cy.get('[routerlink="/manage-loan/manage-personal-loan"]').click()
+cy.get('[class="outstandingMainCard__blueCircleAmount black"]').should('be.visible')
+// .and('have.text',' 1,000,000 ')
+cy.get('[class="outstandingMainCard__blueCircleDate ng-star-inserted"]').first()
+.should('be.visible')
+// .and('have.text','Loan applied : 03 Feb 2021 ')
+cy.get('[class="outstandingMainCard__blueCircleAmount outstandingMainCard__blueCircleAmount__center"]')
+.should('be.visible')
+// .and('have.text',' 650,000 ')
+cy.get('[class="outstandingMainCard__whitecircledate"]').scrollIntoView()
+.should('be.visible')
+// .and('have.text',' 5,000 ')
+cy.get('[class="outstandingMainCard__blueCircleDate outstandingMainCard__blueCircleDate--right ng-star-inserted"]')
+.should('be.visible')
+// .and('have.text')
+}
 
+SummaryAmountData()
+{
+cy.get('div').find('[class="summay__whiteCard"]').then(summary=>{
+cy.wrap(summary).find('[class="col-md-4"] p').each((detail)=>{
+ const amountOfSummary=   detail.text().trim()
+ const details={amountOfSummary}
+ cy.writeFile('cypress//fixtures//SummaryAndOutstanding_Data.json',[details],{flag:'a+'})
+})
+cy.wrap(summary).get('[class="col-md-1"] img').click({force:true})
+cy.get('[class="main-toggle"] [class="row"] div').each((details)=>{
+    const detailsOfIBtn=  details.text().trim()
+    const iButton={detailsOfIBtn}
+    cy.writeFile('cypress//fixtures//SummaryAndOutstanding_Data.json',[iButton],{flag:'a+'})
+   })
+   cy.wrap(summary).get('[class="col-md-1"] img').click({force:true})
+})
+
+}
+
+outStandingAmountData()
+{
+cy.get('div').find('[class="outstandingMainCard__outstandInsideCard"]').then(outStanding=>{
+    cy.wrap(outStanding).find('[class="row"] div p').each((outStandingData)=>{
+       const outStandingAmountData= outStandingData.text().trim()
+       const data={outStandingAmountData}
+       cy.writeFile('cypress//fixtures//SummaryAndOutstanding_Data.json',[data],{flag:'a+'})
     })
-
 })
 }
 
-
-clickOnManagePersonalLoan(){
-
-cy.get('[routerlink="/manage-loan/manage-personal-loan"]').click()
-
-}
-
-clickOnPrePaymentOfPersonalLoan()
+loanSummaryCardDetails()
 {
-cy.contains('Pre-payment of Personal Loan').click()
+cy.get('div').find('[class="summary-card-second-list"]').then(loanSummary=>{
+cy.wrap(loanSummary).find(' [class="col-md-6"] p').each((listOfData)=>{
+   const loanSummaryData= listOfData.text().trim()
+   const loanData={loanSummaryData}
+   cy.writeFile('cypress//fixtures//SummaryAndOutstanding_Data.json',[loanData],{flag:'a+'})
+})
+cy.get('[class="col-md-1 last-icon"] img').click({force:true})
+cy.get('[class="main-toggle"] [class="row"] div').each((details)=>{
+    const detailsOfIBtn=  details.text().trim()
+    const iButton={detailsOfIBtn}
+    cy.writeFile('cypress//fixtures//SummaryAndOutstanding_Data.json',[iButton],{flag:'a+'})
+   })
+   cy.get('[class="col-md-1 last-icon"] img').click({force:true})
+
+})
+
 
 }
+
+
+
 
 }
 

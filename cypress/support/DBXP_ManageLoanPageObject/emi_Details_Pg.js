@@ -3,30 +3,25 @@
 export class EMI_Details 
 {
 
-emi_Details(enterDate)
+chooseEmiDate(enterDate)
 {
-cy.get('div').find('[class="emi-inside-card"]').then(emi =>{
-cy.wrap(emi).find('[class="col-sm-6"] label').then((selectDate)=>{
- const text=   selectDate.text().trim()
-if(text.includes(' Select EMI Date')){
-    cy.wrap(emi).find('[class="emi-label"]').then(dropDown=>{
-    const textOfDropDown= dropDown.text().trim()
-    cy.log(textOfDropDown)
-    expect(textOfDropDown).to.equals('Day 05 of every month')
-    })
-cy.wrap(emi).find('[formcontrolname="newEmiDate"]').then(EMiDropDown=>{
-cy.wrap(EMiDropDown).click()
-cy.get('mat-option[role="option"] span').each((listOfDate)=>{
-    const textOfDate = listOfDate.text().trim()
-if(textOfDate.includes(enterDate)){
-cy.wrap(listOfDate).click()
-cy.wrap(dropDown).should('contain','Day '+enterDate+' of every month')
-}
-})
+
+cy.get('div').find('[formcontrolname="newEmiDate"]').then(dropdown=>{
+cy.wrap(dropdown).click()
+cy.get('mat-option [class="mat-option-text"]').eq(enterDate-1).click()
 })
 }
-})
-})
+
+debitAccountDetails()
+    {
+// cy.contains('savings - 1325793810').scrollIntoView().should('be.visible')
+// cy.contains('Balance : $ 1,000,000').scrollIntoView().should('be.visible')
+this.clickOnSubmitBtn()
+    }
+
+clickOnSubmitBtn()
+{
+    cy.get('[class="btn apply-button"]').click()
 }
 
 
@@ -39,17 +34,16 @@ clickOnRequest_Statement()
 cy.get('[routerlink="/manage-loan/export-statement"]').click()
 
 }
-more_Options(enterNameForStatement)
-{
 
-    cy.get('[class="more-option-card"] p').each((listOfMoreOptions)=>{
-        const text= listOfMoreOptions.text().trim()
-        cy.log(text)
-if(text.includes(enterNameForStatement)){
-cy.wrap(listOfMoreOptions).click()
+successValidate()
+{
+cy.get('[class="success-icon"] img').should('be.visible')
+cy.get('[class="popup-div-inside"] p').should('be.visible').and('have.text','SuccessfulYour Loan settings are updated successfully')
+cy.get('[class="success-message"] p').should('be.visible').and('have.text','Your Loan settings are updated successfully')
+cy.get('[class="submit-btn"] button').click()
+
 }
-    })
-}
+
 
 }
 export const onEMI_Details_Pg =new EMI_Details()

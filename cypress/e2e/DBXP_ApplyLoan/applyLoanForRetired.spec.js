@@ -12,11 +12,13 @@ import { onBase_Pg } from "../../support/Utility/Base_Pg"
 describe('DBXP Apply Loan For Retired ',()=> {
 
     it('Validate for Retired',() =>{
-cy.fixture('ApplyLoanData').then(applyLoanData =>{
-onLoginPage.loginWithValidUserNameAndPassword(applyLoanData.Username,applyLoanData.Password)
+        cy.fixture('LoginData').then(loginData =>{
+onLoginPage.loginWithValidUserNameAndPassword(loginData.Username,loginData.Password)
+        })
 onBase_Pg.clickOnLoanButton()
 // onBase_Pg.clickOnApplyLoanBtn()
 onBase_Pg.clickOnAddNewLoanButton()
+cy.fixture('ApplyLoanData').then(applyLoanData =>{
 onUserDetailsPage.enterPanNumber(applyLoanData.PanNumber)
 onEmploymentTypePage.chooseEmploymentType(applyLoanData.EmploymentType)
 onEmploymentTypePage.enterDataForRetired(applyLoanData.LastEmployer)

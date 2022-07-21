@@ -79,6 +79,14 @@ this.chooseCurrency(currency)
 cy.wrap(form).find('[class="mat-error-text mat-error ng-star-inserted"]').last().should('have.text',' Only numbers and comma or decimal ')
 cy.wrap(form).find('div[class="row"] button[type="submit"]').should('be.disabled')
 
+cy.wrap(form).find('[placeholder="Employer Name"]').clear().type(enterEmployerName)
+this.chooseCurrency(currency)
+cy.wrap(form).find('[class="mat-error-text mat-error ng-star-inserted"]').first().should('have.text',' Alphabets, numbers, space and special characters allowed ')
+cy.wrap(form).find('[class="mat-form-field-infix"] input[type="text"]').eq(5).clear().type(enterMonthlyIncome)
+this.chooseCurrency(currency)
+cy.wrap(form).find('[class="mat-error-text mat-error ng-star-inserted"]').last().should('have.text',' Only numbers and comma or decimal ')
+
+
 })
 
 }

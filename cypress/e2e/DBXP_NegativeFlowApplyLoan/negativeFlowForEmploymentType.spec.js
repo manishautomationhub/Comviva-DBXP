@@ -8,17 +8,22 @@ import { onBase_Pg } from "../../support/Utility/Base_Pg"
 
 describe('DBXP Apply Loan Test Suit', function() {
 
-    it('Validate Employment type with invalid data', ()=>{
-        cy.fixture('ApplyLoanData').then(applyloanData=>{
-onLoginPage.loginWithValidUserNameAndPassword(applyloanData.Username,applyloanData.Password)
+it('Validate Employment type with invalid data', ()=>{
+cy.fixture('LoginData').then(LoginData =>{
+onLoginPage.loginWithValidUserNameAndPassword(LoginData.Username, LoginData.Password)
+})
 onBase_Pg.clickOnLoanButton()
-onBase_Pg.clickOnApplyLoanBtn()
-onUserDetailsPage.enterPanNumber(applyloanData.PanNumber)
+// onBase_Pg.clickOnApplyLoanBtn()
+onBase_Pg.clickOnAddNewLoanButton()
+cy.fixture('ApplyLoanData').then(applyLoan=>{
+onUserDetailsPage.enterPanNumber(applyLoan.PanNumber)
 })
 
-cy.fixture('ApplyLoanNegativeData').then(negativeData =>{
+
+    cy.fixture('ApplyLoanNegativeData').then(negativeData =>{
     onEmploymentTypePage.chooseEmploymentType(negativeData.EmploymentType)
     onEmploymentTypePage.enetrDataForSalaried(negativeData.LastEmployer,negativeData.Currency, negativeData.MonthlyIncome)
+
 })
 
 

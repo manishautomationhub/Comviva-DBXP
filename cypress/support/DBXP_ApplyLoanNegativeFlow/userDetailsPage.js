@@ -9,7 +9,7 @@ enterPanNumber(panNumber){
     cy.wrap(form).find('[formcontrolname="dob"]').should('be.visible')
     cy.scrollTo('center', { ensureScrollable: false })
     cy.wrap(form).find('[formcontrolname="mobile"]').should('be.visible')
-    cy.wrap(form).find('[formcontrolname="email"]').should('be.visible')
+    cy.wrap(form).find('[formcontrolname="email"]').scrollIntoView().should('be.visible')
     cy.scrollTo('bottom', { ensureScrollable: false })
     cy.wrap(form).find('[formcontrolname="panNumber"]').type(panNumber)
     cy.wrap(form).click()

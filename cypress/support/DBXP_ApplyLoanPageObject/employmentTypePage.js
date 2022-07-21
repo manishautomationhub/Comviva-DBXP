@@ -95,7 +95,7 @@ cy.wrap(professionDD).click()
 cy.get('[role="option"] span').each((listprofession)=>{
 const professionText = listprofession.text().trim()
 if(professionText.includes(enterProfession))
-listprofession.click()
+cy.wrap(listprofession).click()
 cy.wrap(listprofession).should('contain',professionText)
 })
 })
@@ -104,7 +104,6 @@ cy.wrap(listprofession).should('contain',professionText)
 
 enterDataForSelfEmployed(startDateProfession, companyNameS_E, enterCurrency, lastYearPAT, enterProfessionType)
 {
-
 cy.get('div').find('form').then(form =>{
 cy.wrap(form).find('[placeholder="Start Date"]').clear().type(startDateProfession)
 cy.wrap(form).find('[class="mat-form-field-infix"] input[type="text"]').eq(5).clear().type(companyNameS_E)
@@ -112,7 +111,7 @@ this.chooseCurrency(enterCurrency)
 cy.scrollTo('bottom',{ensureScrollable:false})
 cy.wrap(form).find('[class="mat-form-field-infix"] input').eq(7).type(lastYearPAT)
 this.chooseProfession(enterProfessionType)
-cy.wrap(form).find('div[class="row"] button[type="submit"]').should('be.enabled').click() 
+cy.wrap(form).find('div[class="row"] button[type="submit"]').click({force:true}) 
 
     })
 

@@ -15,11 +15,13 @@ describe('DBXP Apply Loan For Student ',()=> {
 
     it('Validate for Student',() =>{
 
-        cy.fixture('ApplyLoanData').then(applyLoanData =>{
-            onLoginPage.loginWithValidUserNameAndPassword(applyLoanData.Username,applyLoanData.Password)
+        cy.fixture('LoginData').then(loginData =>{
+            onLoginPage.loginWithValidUserNameAndPassword(loginData.Username,loginData.Password)
+            })
             onBase_Pg.clickOnLoanButton()
             // onBase_Pg.clickOnApplyLoanBtn()
             onBase_Pg.clickOnAddNewLoanButton()
+            cy.fixture('ApplyLoanData').then(applyLoanData =>{
             onUserDetailsPage.enterPanNumber(applyLoanData.PanNumber)
             onEmploymentTypePage.chooseEmploymentType('Student')
             onEmploymentTypePage.enterDataForStaudent(applyLoanData.Qualification, applyLoanData.CoBorrowerName,applyLoanData.Currency,applyLoanData.CoBorrowerMonthlyIncome)

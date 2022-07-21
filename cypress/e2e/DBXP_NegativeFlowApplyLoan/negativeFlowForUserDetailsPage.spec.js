@@ -11,13 +11,14 @@ describe('DBXP Apply Loan Test Suit', function() {
 
 it('validate PanNumber with invalid data',()=>{
 
-    cy.fixture('ApplyLoanData').then(applyLoanData =>{
-    onLoginPage.loginWithValidUserNameAndPassword('sdfghj34567','dfghjk')
+    cy.fixture('LoginData').then(loginData =>{
+    onLoginPage.loginWithValidUserNameAndPassword(loginData.Username,loginData.Password)
     })
 
     cy.fixture('ApplyLoanNegativeData').then(applyLoanData =>{
         onBase_Pg.clickOnLoanButton()
-        onBase_Pg.clickOnApplyLoanBtn()
+        // onBase_Pg.clickOnApplyLoanBtn()
+        onBase_Pg.clickOnAddNewLoanButton()
    onUserDetailsPage.enterPanNumber(applyLoanData.PanNumber)
 
     })

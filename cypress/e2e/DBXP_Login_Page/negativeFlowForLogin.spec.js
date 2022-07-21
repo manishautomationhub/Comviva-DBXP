@@ -7,8 +7,8 @@ describe('DBXP Apply Loan Test Suit', function() {
 
 
 it('Validate Negative Testcase for Login ', function() {
-    cy.fixture('ApplyLoanNegativeData').then(applyLoanData =>{
-onLoginPage.loginWithInvalidUserNameAndPassword(applyLoanData.Username, applyLoanData.Password)
+    cy.fixture('ApplyLoanNegativeData').then(loginData =>{
+onLoginPage.loginWithInvalidUserNameAndPassword(loginData.Username, loginData.Password)
     })
 })
 })
