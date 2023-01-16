@@ -1,0 +1,40 @@
+package com.practice.java.coding;
+
+	import java.util.List;
+	import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebElement;
+	import org.openqa.selenium.chrome.ChromeDriver;
+
+	public class InnovationMAssignment {
+		static {
+			System.setProperty("webdriver.chrome.driver","Driver//chromedriver.exe");//we have to set driver executable file
+		}
+	    public static void main(String[] args) throws InterruptedException {   //Main method
+			System.setProperty("webdriver.chrome.driver","Driver//chromedriver.exe");//we have to set driver executable file
+
+	    	
+	    	WebDriver driver = new ChromeDriver(); //Upcast Webdriber to chrome driver so we can run script on any browser
+			driver.get("https://www.flipkart.com/"); //Used get method for entering url of the website
+			driver.findElement(By.xpath("/html/body/div[2]/div/div/button")).click(); //this line will close the pop up
+			Thread.sleep(1000);//used waiting condition so we can see the execution 
+			driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div[2]/div/div[1]/div[4]/div/a/div/img[2]")).click();//Used this statement to search the element option
+			Thread.sleep(1000);//used waiting condition so we can see the execution
+			List<WebElement>allSugg= driver.findElements(By.xpath("//*[@id=\"container\"]/div/div[2]/div/div/span[1]"));//Find the list present after go tothe element
+			int count= allSugg.size();//we have to take a variable for looping codition
+			for(int i=0;i<count;i++) {
+				String text =allSugg.get(i).getText();//Storing all the value in text
+				System.out.println("i."+text);//For printing all the list
+				}
+	                   driver.close();//for closing the browser
+	              
+	     
+		}
+
+	}
+	
+	
+	
+	
+	
+

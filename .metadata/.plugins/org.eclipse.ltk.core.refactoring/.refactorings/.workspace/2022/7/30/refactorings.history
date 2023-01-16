@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;comviva.dbxp.api.loan&apos; to &apos;Comviva_DBXP_API_Loan&apos;&#x0D;&#x0A;- Original element: &apos;comviva.dbxp.api.loan&apos;&#x0D;&#x0A;- Renamed element: &apos;comviva.dbxp.api.loan&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;comviva.dbxp.api.loan&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=comviva.dbxp.api.loan" name="Comviva_DBXP_API_Loan" references="true" stamp="1658395967998" version="1.0"/>
+</session>

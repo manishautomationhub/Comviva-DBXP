@@ -1,0 +1,11 @@
+package com.dbxp.comviva;
+
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class Applyloan {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.driver.chrome","\\Driver\\chromedriver.exe");
+		InternetExplorerDriver driver =new InternetExplorerDriver();
+	}
+
+}

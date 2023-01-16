@@ -1,0 +1,16 @@
+package com.practice.windowHandle;
+
+import org.openqa.selenium.WebDriver;
+
+public class Vtiger {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","Driver//chromedriver.exe");
+		WebDriver driver= ChromeDriver();
+		driver.get("https://demoqa.com/browser-windows");
+		
+	}
+	
+	
+	
+}

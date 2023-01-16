@@ -1,0 +1,11 @@
+package com.pdf;
+
+public class PDFC {
+
+	String expFile="C:\\Users\\manish.prajapati\\Downloads";
+	String actFile="C://Users//manish.prajapati//Downloads//Manish _Prajapati_Payslip_February_2022.pdf";
+	
+	
+	
+	
+}

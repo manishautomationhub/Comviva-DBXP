@@ -1,0 +1,20 @@
+package com.dbxp.comviva;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class Applyloan {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","Driver\\chromedriver.exe");
+		WebDriver driver =new ChromeDriver();
+		driver.get("https://dbxpinnom.comviva.com/mbw/#/mbw/");
+		driver.findElement(By.xpath("//input[@formcontrolname=\"username\"]")).sendKeys("SUBS7772633425");
+		driver.findElement(By.xpath("//input[@formcontrolname=\"password\"]")).sendKeys("Com@1358");
+		driver.findElement(By.xpath("//div//mat-list-item[@routerlink='/manage-loan']//i")).click();
+		driver.findElement(By.xpath("//button[@routerlink='apply-loan']")).click();
+		driver.findElement(By.xpath("(//div[@class='mat-ripple-element mat-checkbox-persistent-ripple'])[1]")).click();
+	}
+
+}

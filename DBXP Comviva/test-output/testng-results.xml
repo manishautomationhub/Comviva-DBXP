@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-07-29T10:54:25 IST" name="Default suite" finished-at="2022-07-29T10:55:29 IST" duration-ms="64132">
+    <groups>
+    </groups>
+    <test started-at="2022-07-29T10:54:25 IST" name="Default test" finished-at="2022-07-29T10:55:29 IST" duration-ms="64132">
+      <class name="com.dbxp.comviva.Applyloan">
+        <test-method signature="launchspocify()[pri:1, instance:com.dbxp.comviva.Applyloan@61d6015a]" started-at="2022-07-29T10:54:25 IST" name="launchspocify" finished-at="2022-07-29T10:54:32 IST" duration-ms="7115" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchspocify -->
+        <test-method signature="loginSpocify()[pri:2, instance:com.dbxp.comviva.Applyloan@61d6015a]" started-at="2022-07-29T10:54:32 IST" name="loginSpocify" finished-at="2022-07-29T10:55:20 IST" duration-ms="48067" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSpocify -->
+        <test-method signature="gotoProductSectionAndFillup()[pri:3, instance:com.dbxp.comviva.Applyloan@61d6015a]" started-at="2022-07-29T10:55:20 IST" name="gotoProductSectionAndFillup" finished-at="2022-07-29T10:55:29 IST" duration-ms="8923" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- gotoProductSectionAndFillup -->
+      </class> <!-- com.dbxp.comviva.Applyloan -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

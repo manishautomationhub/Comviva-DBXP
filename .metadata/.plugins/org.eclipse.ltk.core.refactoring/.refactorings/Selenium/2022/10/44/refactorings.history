@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;cam.flipkar.in&apos; to &apos;cam.flipkart.in&apos;&#x0D;&#x0A;- Original project: &apos;Selenium&apos;&#x0D;&#x0A;- Original element: &apos;Selenium/src/cam.flipkar.in&apos;&#x0D;&#x0A;- Renamed element: &apos;Selenium/src/cam.flipkart.in&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;cam.flipkar.in&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;cam.flipkar.in" name="cam.flipkart.in" qualified="false" references="true" stamp="1666772705274" textual="false" version="1.0"/>
+</session>

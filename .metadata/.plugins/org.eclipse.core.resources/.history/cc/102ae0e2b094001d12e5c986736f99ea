@@ -1,0 +1,41 @@
+package com.practice.java.coding;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
+
+public class InnovationMAssignmentAgain {
+	
+	@FindBy(xpath="https://www.flipkart.com/")
+	private WebElement PageUrl;
+	@FindBy(xpath="//button[@class='_2KpZ6l _2doB4z']")
+	private WebElement CrossSign;
+	@FindBy(xpath="//div[@class='_3ChZRr _1rs5Pv']")
+	private WebElement Banner;
+	@FindBys(@FindBy(xpath="//span[@class='_2I9KP_']"))
+	private List<WebElement>allSugg;
+	
+	public InnovationMAssignmentAgain(WebDriver driver) {
+	PageFactory.initElements(driver, this);
+	}
+	public void GotoFlikart(String url) {
+		PageUrl.getAttribute(url);
+	}
+	public void CrossSignClick() {
+		CrossSign.click();
+	}
+	public void BannerClick() {
+		Banner.click();
+	}
+	public <allSugg> void GotoElement() {
+	int count= allSugg.size();
+	for(int i=0;i<count;i++) {
+	String text =allSugg.get(i).getText();
+	System.out.println("i."+text);
+		}
+	}               
+	}
